@@ -20,7 +20,7 @@ class InputAdapter: InputProtocol {
     
     
     func enterNum(_ number: Int) {
-        if buffer == "" || buffer == "0" || thereIsStartedNum {
+        if buffer.isEmpty || buffer == "0" || thereIsStartedNum {
             buffer = String(number)
             thereIsStartedNum = false
             
@@ -38,7 +38,10 @@ class InputAdapter: InputProtocol {
     }
     
     func enterUtility(_ symbol: Operation) {
+        if symbol != .clearLast && symbol != .clear {
         operationClicked = true
+        }
+        pickerIsScroling = false
         
         if OperationBinary(symbol) {
             if characterOperationBinary(buffer) {
@@ -50,7 +53,7 @@ class InputAdapter: InputProtocol {
                 case .div: buffer += "÷"
                 default: break
                 }
-            } else if lastCharacterIsNum(buffer) || buffer.characters.last == ")" {
+            } else if lastCharacterIsNum(buffer) || buffer.characters.last == ")" || buffer.characters.last == "n" || buffer.characters.last == "f" {
                 switch symbol {
                 case .pls: buffer += " +"
                 case .mns: buffer += " -"
@@ -132,6 +135,7 @@ class InputAdapter: InputProtocol {
         }
         
         if OperationUnary(symbol) {
+            if !buffer.isEmpty{
             if lastCharacterIsNum(buffer) && !thereIsStartedNum || buffer.characters.last! == ")" {
                 brain.countOfLeftParentheses += 1
                 switch symbol {
@@ -161,6 +165,7 @@ class InputAdapter: InputProtocol {
                 default: break
                 }
             }
+            }
         }
         
         brain.procces(buffer)
@@ -172,8 +177,8 @@ class InputAdapter: InputProtocol {
     func BufferRemoveSubRange () {
         let lastSpaceIndex = buffer.range(of: " ", options: String.CompareOptions.backwards, range: nil, locale: nil)?.lowerBound
         let ending = buffer.index(before: buffer.endIndex)
-        if buffer != "" && lastSpaceIndex != nil {
-            buffer.removeSubrange(lastSpaceIndex!...ending)}
+        if !buffer.isEmpty {
+            buffer.removeSubrange((lastSpaceIndex ?? buffer.startIndex)...ending)}
     }
     
     func lastElementInBuffer() -> (String) {

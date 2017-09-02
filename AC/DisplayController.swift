@@ -30,6 +30,7 @@ class DisplayController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         
         output.resultDisplay = {[weak self] result in self?.presentResult(result)}
         output.reloadPickerDisplay = {[weak self] in self?.reloadPicker()}
+        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -63,6 +64,7 @@ class DisplayController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
+        
         input.pickerIsScroling = true
         
         // geting a result in subStrResult
@@ -70,14 +72,20 @@ class DisplayController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         let indexOfResult = input.resultCollection[row].index(indexOfEqual!, offsetBy: 2)
         let subStrResult = input.resultCollection[row].substring(from: indexOfResult)
         
-        if input.operationClicked {
+        if input.operationClicked { //if there was an operation in equation
             
-            if lastCharacterIsNum(input.buffer)
-            {
+            
+            if input.buffer.characters.last == "n" || input.buffer.characters.last == "f" { //nun or inf
                 input.BufferRemoveSubRange()
-                
+                input.buffer += " \(subStrResult)"
             }
-            input.buffer += " \(subStrResult)" //replacing current result with another result of picker
+            
+            if lastCharacterIsNum(input.buffer) || input.buffer.characters.last == "." || input.buffer.characters.last == "n" || input.buffer.characters.last == "f" { //nun or inf
+                input.BufferRemoveSubRange()
+                input.buffer += " \(subStrResult)"
+            } else {
+                input.buffer += " \(subStrResult)"
+            }
             
         } else {
             input.buffer = subStrResult
@@ -85,7 +93,7 @@ class DisplayController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         }
         output.presentResult(result: input.buffer)
         
-        
+        output.enablingButtons()
     }
     
     func reloadPicker() {

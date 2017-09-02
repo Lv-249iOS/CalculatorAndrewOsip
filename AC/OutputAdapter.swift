@@ -13,11 +13,15 @@ class OutputAdapter: OutputProtocol {
     
     var resultDisplay: ((String)->())?
     var reloadPickerDisplay: (()->())?
+    var enablingButt: (()->())?
     
     func presentResult(result: String) {
         resultDisplay?(result)
     }
     func reloadPicker() {
         reloadPickerDisplay?()
+    }
+    func enablingButtons() {
+        enablingButt?()
     }
 }
