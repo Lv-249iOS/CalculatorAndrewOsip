@@ -10,7 +10,6 @@
 		B200DD9F1F17B35D00643A63 /* Emitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200DD9E1F17B35D00643A63 /* Emitter.swift */; };
 		B200DDA11F17D90500643A63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B200DDA01F17D90500643A63 /* Main.storyboard */; };
 		B24A66191F18EB64005CBE91 /* BounceBotton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24A66181F18EB64005CBE91 /* BounceBotton.swift */; };
-		B24D522F1F25E63A00A918F8 /* launching1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B24D522E1F25E63A00A918F8 /* launching1.jpg */; };
 		B25690231F03B54E003CB632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25690221F03B54E003CB632 /* AppDelegate.swift */; };
 		B25690251F03B54E003CB632 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25690241F03B54E003CB632 /* ViewController.swift */; };
 		B256902D1F03B54E003CB632 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B256902B1F03B54E003CB632 /* LaunchScreen.storyboard */; };
@@ -163,7 +162,6 @@
 		B200DD9E1F17B35D00643A63 /* Emitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emitter.swift; sourceTree = "<group>"; };
 		B200DDA01F17D90500643A63 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B24A66181F18EB64005CBE91 /* BounceBotton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceBotton.swift; sourceTree = "<group>"; };
-		B24D522E1F25E63A00A918F8 /* launching1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launching1.jpg; sourceTree = "<group>"; };
 		B256901F1F03B54E003CB632 /* AC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B25690221F03B54E003CB632 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B25690241F03B54E003CB632 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -324,6 +322,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B203464C1F5EFE010087821C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B25690421F03B71B003CB632 /* Protocols.swift */,
+				B25690441F03B7B3003CB632 /* InputAdapter.swift */,
+				B25690481F03B845003CB632 /* Brain.swift */,
+				B25690461F03B7F7003CB632 /* OutputAdapter.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B203464D1F5EFE270087821C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B25690241F03B54E003CB632 /* ViewController.swift */,
+				B256904C1F03B938003CB632 /* DisplayController.swift */,
+				B256904E1F03B9A0003CB632 /* KeyboardController.swift */,
+				B2FF95941F164A9500FD6B91 /* FunController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B203464E1F5EFE4A0087821C /* Suporting files */ = {
+			isa = PBXGroup;
+			children = (
+				B24A66181F18EB64005CBE91 /* BounceBotton.swift */,
+				B200DD9E1F17B35D00643A63 /* Emitter.swift */,
+				B25690221F03B54E003CB632 /* AppDelegate.swift */,
+				B26D8E4C1F1CF588006832BE /* Assets.xcassets */,
+				B256902B1F03B54E003CB632 /* LaunchScreen.storyboard */,
+			);
+			name = "Suporting files";
+			sourceTree = "<group>";
+		};
 		B25690161F03B54E003CB632 = {
 			isa = PBXGroup;
 			children = (
@@ -345,21 +377,10 @@
 		B25690211F03B54E003CB632 /* AC */ = {
 			isa = PBXGroup;
 			children = (
-				B25690421F03B71B003CB632 /* Protocols.swift */,
-				B25690441F03B7B3003CB632 /* InputAdapter.swift */,
-				B25690481F03B845003CB632 /* Brain.swift */,
-				B25690461F03B7F7003CB632 /* OutputAdapter.swift */,
-				B25690241F03B54E003CB632 /* ViewController.swift */,
-				B256904C1F03B938003CB632 /* DisplayController.swift */,
-				B256904E1F03B9A0003CB632 /* KeyboardController.swift */,
-				B24A66181F18EB64005CBE91 /* BounceBotton.swift */,
-				B2FF95941F164A9500FD6B91 /* FunController.swift */,
-				B200DD9E1F17B35D00643A63 /* Emitter.swift */,
-				B25690221F03B54E003CB632 /* AppDelegate.swift */,
-				B26D8E4C1F1CF588006832BE /* Assets.xcassets */,
+				B203464C1F5EFE010087821C /* Model */,
+				B203464D1F5EFE270087821C /* Controllers */,
+				B203464E1F5EFE4A0087821C /* Suporting files */,
 				B200DDA01F17D90500643A63 /* Main.storyboard */,
-				B256902B1F03B54E003CB632 /* LaunchScreen.storyboard */,
-				B24D522E1F25E63A00A918F8 /* launching1.jpg */,
 				B26D8E471F1CCB07006832BE /* girafs */,
 				B256902E1F03B54E003CB632 /* Info.plist */,
 			);
@@ -692,7 +713,6 @@
 				B26D8DF31F1CCA7C006832BE /* giphy-27 (dragged).tiff in Resources */,
 				B26D8E271F1CCA7C006832BE /* giphy-57 (dragged).tiff in Resources */,
 				B26D8DD71F1CCA7C006832BE /* giphy-12 (dragged) 1.tiff in Resources */,
-				B24D522F1F25E63A00A918F8 /* launching1.jpg in Resources */,
 				B26D8E411F1CCA7C006832BE /* giphy-81 (dragged).tiff in Resources */,
 				B26D8E431F1CCA7C006832BE /* giphy-83 (dragged).tiff in Resources */,
 				B26D8E191F1CCA7C006832BE /* giphy-46 (dragged).tiff in Resources */,

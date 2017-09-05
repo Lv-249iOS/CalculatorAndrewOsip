@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launching1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="af1-su-lfq">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launching1" translatesAutoresizingMaskIntoConstraints="NO" id="af1-su-lfq">
                                 <rect key="frame" x="-251" y="0.0" width="626" height="667"/>
                             </imageView>
                         </subviews>
@@ -40,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launching1.jpg" width="3600" height="2616"/>
+        <image name="launching1" width="3600" height="2616"/>
     </resources>
 </document>
