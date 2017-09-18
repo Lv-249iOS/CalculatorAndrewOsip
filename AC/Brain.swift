@@ -135,7 +135,7 @@ class Brain: Model {
                 if let operand1 = operation[tok] {
                     for op in stack.reversed() {
                         if let operand2 = operation[op] {
-                            if !(operand1.prec > operand2.prec || (operand1.prec == operand2.prec && operand1.rAssoc)) {
+                            if !(operand1 > operand2 || (operand1 == operand2)) {
                                 rpn += [stack.removeLast()]
                                 continue
                             }
@@ -152,15 +152,15 @@ class Brain: Model {
     }
     //priority of operations
     let operation = [
-        "^": (prec: 4, rAssoc: true),
-        "√": (prec: 5, rAssoc: true),
-        "×": (prec: 3, rAssoc: false),
-        "÷": (prec: 3, rAssoc: false),
-        "+": (prec: 2, rAssoc: false),
-        "-": (prec: 2, rAssoc: false),
-        "sin": (prec: 5, rAssoc: true),
-        "cos": (prec: 5, rAssoc: true),
-        "ln": (prec: 4, rAssoc: true),
+        "^": 4,
+        "√": 5,
+        "×": 3,
+        "÷": 3,
+        "+": 2,
+        "-": 2,
+        "sin": 5,
+        "cos": 5,
+        "ln": 4,
         ]
     
     
