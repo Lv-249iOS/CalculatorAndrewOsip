@@ -26,7 +26,7 @@ class InputAdapter: InputProtocol {
             
         } else if buffer.characters.last == "." || lastCharacterIsNum(buffer) {
             if pickerIsScroling {                                       //in this case we have to replace last operand with input
-                BufferRemoveSubRange()
+                bufferRemoveLastSubRange()
                 buffer+=" "
                 pickerIsScroling = false
             }
@@ -43,7 +43,7 @@ class InputAdapter: InputProtocol {
         }
         pickerIsScroling = false
         
-        if OperationBinary(symbol) {
+        if operationBinary(symbol) {
             if characterOperationBinary(buffer) {
                 buffer.characters.removeLast()
                 switch symbol {
@@ -134,7 +134,7 @@ class InputAdapter: InputProtocol {
             }
         }
         
-        if OperationUnary(symbol) {
+        if operationUnary(symbol) {
             if !buffer.isEmpty{
             if lastCharacterIsNum(buffer) && !thereIsStartedNum || buffer.characters.last! == ")" {
                 brain.countOfLeftParentheses += 1
@@ -174,7 +174,7 @@ class InputAdapter: InputProtocol {
     
     
     
-    func BufferRemoveSubRange () {
+    func bufferRemoveLastSubRange () {
         let lastSpaceIndex = buffer.range(of: " ", options: String.CompareOptions.backwards, range: nil, locale: nil)?.lowerBound
         let ending = buffer.index(before: buffer.endIndex)
         if !buffer.isEmpty {
@@ -190,7 +190,7 @@ class InputAdapter: InputProtocol {
     
     
 }
-func OperationBinary (_ symbol: Operation) ->Bool {
+func operationBinary (_ symbol: Operation) ->Bool {
     switch symbol {
     case .pls: fallthrough
     case .mns: fallthrough
@@ -201,7 +201,7 @@ func OperationBinary (_ symbol: Operation) ->Bool {
     }
 }
 
-func OperationUnary (_ symbol: Operation) ->Bool {
+func operationUnary (_ symbol: Operation) ->Bool {
     switch symbol {
     case .sin: fallthrough
     case .cos: fallthrough

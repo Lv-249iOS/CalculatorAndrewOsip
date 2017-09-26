@@ -87,13 +87,11 @@ class FunController: UIViewController {
         defaults.set(snowSwitch.isOn, forKey: snowController)
     }
     
-    
     //increasing the lifs count
-    @IBAction func StepperChanged(_ sender: UIStepper) {
+    @IBAction func stepperChange(_ sender: UIStepper) {
         view.layer.sublayers?.removeLast()
         snow()
         emitter.emitterCells?.first?.birthRate = Float(sender.value)
-        
     }
     
     //define the emitter

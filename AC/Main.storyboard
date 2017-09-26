@@ -112,7 +112,7 @@
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1.5" maximumValue="20" stepValue="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pVT-Hk-pGx">
                                 <rect key="frame" x="210" y="106" width="94" height="29"/>
                                 <connections>
-                                    <action selector="StepperChanged:" destination="z93-fd-j2D" eventType="valueChanged" id="g8Z-hI-nnO"/>
+                                    <action selector="stepperChange:" destination="z93-fd-j2D" eventType="valueChanged" id="kze-ea-kBR"/>
                                 </connections>
                             </stepper>
                         </subviews>

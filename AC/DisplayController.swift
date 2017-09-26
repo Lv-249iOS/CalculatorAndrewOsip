@@ -76,12 +76,12 @@ class DisplayController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             
             
             if input.buffer.characters.last == "n" || input.buffer.characters.last == "f" { //nun or inf
-                input.BufferRemoveSubRange()
+                input.bufferRemoveLastSubRange()
                 input.buffer += " \(subStrResult)"
             }
             
             if lastCharacterIsNum(input.buffer) || input.buffer.characters.last == "." || input.buffer.characters.last == "n" || input.buffer.characters.last == "f" { //nun or inf
-                input.BufferRemoveSubRange()
+                input.bufferRemoveLastSubRange()
                 input.buffer += " \(subStrResult)"
             } else {
                 input.buffer += " \(subStrResult)"
